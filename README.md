@@ -54,6 +54,8 @@ func main() {
 			Referrer:           "baz",
 			ResponseStatusCode: 200,
 			RemoteIP:           "1.2.3.4",
+			bodySize:           6203,
+			latency:            "0.0324s",
 		}))
 }
 ```
