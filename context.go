@@ -71,6 +71,8 @@ type HTTPRequest struct {
 	Referrer           string `json:"referrer"`
 	ResponseStatusCode int    `json:"responseStatusCode"`
 	RemoteIP           string `json:"remoteIp"`
+	BodySize           int    `json:"bodySize"`
+	Latency            string `json:"latency"`
 }
 
 func (h *HTTPRequest) Clone() *HTTPRequest {
@@ -91,6 +93,8 @@ func (h *HTTPRequest) MarshalLogObject(e zapcore.ObjectEncoder) error {
 	e.AddString("referrer", h.Referrer)
 	e.AddInt("responseStatusCode", h.ResponseStatusCode)
 	e.AddString("remoteIp", h.RemoteIP)
+	e.AddInt("responseSize", h.BodySize)
+	e.AddString("latency", h.Latency)
 	return nil
 }
 
